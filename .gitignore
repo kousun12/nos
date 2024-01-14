@@ -137,3 +137,6 @@ dmypy.json
 
 # pytorch
 *.pt
+
+# OSX
+.DS_Store
