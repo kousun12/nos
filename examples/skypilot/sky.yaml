@@ -1,15 +1,11 @@
-# NOS GPU server deployment on T4 (Google Cloud Platform)
+# NOS GPU server deployment on T4
 # Usage: sky launch -c nos-server server.yaml
 
 name: nos-server
 
-file_mounts:
-  /app: ./app
-
 resources:
-  cloud: gcp
-  region: us-west1
   accelerators: T4:1
+  cloud: gcp
   ports:
     - 8000
     - 50051
@@ -17,6 +13,9 @@ resources:
 setup: |
   # Install docker compose plugin
   sudo apt-get install -y docker-compose-plugin
+  # Install torch-nos
+  pip install torch-nos
 
 run: |
-  cd /app && docker compose -f docker-compose.gpu.yml up
+  # Run the server
+  nos serve up --http
