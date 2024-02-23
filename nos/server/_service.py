@@ -212,7 +212,7 @@ class InferenceServiceImpl(nos_service_pb2_grpc.InferenceServiceServicer, Infere
             self.load_model_spec(svc.model, svc.deployment)
             logger.debug(f"Deployed model [svc={svc}]. \n{self.model_manager}")
 
-    def Ping(self, _: empty_pb2.Empty, context: grpc.ServicerContext) -> nos_service_pb2.PingResponse:
+    async def Ping(self, _: empty_pb2.Empty, context: grpc.ServicerContext) -> nos_service_pb2.PingResponse:
         """Health check."""
         return nos_service_pb2.PingResponse(status="ok")
 
@@ -318,7 +318,7 @@ class InferenceServiceImpl(nos_service_pb2_grpc.InferenceServiceServicer, Infere
         for _chunk_idx, chunk_request in enumerate(request_iterator):
             chunk = loads(chunk_request.request_bytes)
             chunk_bytes = chunk["chunk_bytes"]
-            path = Path(chunk["filename"]).absolute()
+            path = Path(chunk["filename"])
             if str(path) not in self._tmp_files:
                 tmp_file = NamedTemporaryFile(delete=False, dir="/tmp", suffix=path.suffix)
                 self._tmp_files[str(path)] = tmp_file

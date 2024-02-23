@@ -1,5 +1,5 @@
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from threading import Thread
 from typing import Any, Dict, Iterable, List
 
@@ -34,7 +34,7 @@ class LLMConfig(HuggingFaceHubConfig):
     needs_auth: bool = False
     """Whether the model needs authentication."""
 
-    additional_kwargs: Dict[str, Any] = None
+    additional_kwargs: Dict[str, Any] = field(default_factory=dict)
     """Additional keyword arguments to pass to the model."""
 
     chat_template: str = None
@@ -142,6 +142,7 @@ class LLM:
             temperature=temperature,
             num_beams=num_beams,
             repetition_penalty=repetition_penalty,
+            use_cache=True,
         )
         t = Thread(target=self.model.generate, kwargs=generate_kwargs)
         t.start()

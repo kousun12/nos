@@ -46,7 +46,7 @@ nav:
     - nos.managers: docs/api/managers.md
     - nos.executors: docs/api/executors.md
   - 🔌 Integrations:
-    - Deploying NOS with SkyPilot: docs/integrations/skypilot.md
+    - SkyPilot: docs/integrations/skypilot.md
   - ✍️ Blog: docs/blog
   - ❓ Support / FAQ: docs/support.md
 
@@ -103,6 +103,8 @@ plugins:
       - '.*\.(tmp|bin|tar)$'
 
 markdown_extensions:
+- attr_list
+- md_in_html
 - admonition
 - mkdocs-typer
 - pymdownx.betterem
@@ -138,9 +140,9 @@ theme:
   custom_dir: docs/overrides
   features:
     - content.code.copy
+    - content.code.annotate
     - navigation.instant
     - navigation.tracking
-    - content.code.annotate
     - toc.follow
 
 extra:

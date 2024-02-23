@@ -8,7 +8,7 @@ You will need to install [Docker](https://docs.docker.com/get-docker/), [Nvidia 
     On Linux, you can install Docker and Docker Compose via the following commands:
     ```bash
     sudo apt-get update \
-    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin \
+    && sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin \
     && sudo systemctl restart docker
     ```
 
@@ -42,7 +42,7 @@ conda activate nos
 
     If you plan to run the NOS server locally (i.e. outside docker), you will also need to install the `server` extra dependencies:
     ```sh
-    pip install torch-nos[server]"
+    pip install 'torch-nos[server]'
     ```
 
     !!!note
@@ -57,14 +57,14 @@ You can start the nos server programmatically via either the CLI or SDK:
 
 === "Via CLI"
 
-    You can start the nos server (in daemon mode) via the NOS `serve` CLI:
+    You can start the nos server via the NOS `serve` CLI:
     ```bash
-    nos serve up -d
+    nos serve up
     ```
 
     Optionally, to use the REST API, you can start an HTTP gateway proxy alongside the gRPC server:
     ```bash
-    nos serve up -d --http
+    nos serve up --http
     ```
     
     !!!note
