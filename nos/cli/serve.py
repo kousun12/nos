@@ -191,7 +191,7 @@ def _serve(
     build: bool = False,
     prod: bool = False,
     env_file: str = None,
-    debug: bool = False,
+    debug: bool = True,
     verbose: bool = False,
 ) -> None:
     from agipack.builder import AGIPack

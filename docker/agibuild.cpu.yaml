@@ -26,7 +26,7 @@ images:
       TZ: "America/Los_Angeles"
       NOS_HOME: /app/.nos
       NOS_LOGGING_LEVEL: WARNING
-      NOS_DASHBOARD_ENABLED: 0
+      NOS_DASHBOARD_ENABLED: 1
       NOS_MEMRAY_ENABLED: 0
       TORCH_HOME: ${NOS_HOME}/cache/torch
       HF_HOME: ${NOS_HOME}/cache/huggingface

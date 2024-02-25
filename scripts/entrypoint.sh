@@ -9,6 +9,6 @@ ray --logging-level warning \
     start --head \
     --port 6379 \
     --disable-usage-stats \
-    --include-dashboard 0 \
+    --include-dashboard 1 \
     > /tmp/ray_server.log
 nos-grpc-server

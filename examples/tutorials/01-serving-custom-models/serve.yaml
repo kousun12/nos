@@ -7,6 +7,7 @@ images:
       - transformers>=4.35.1
     env:
       NOS_LOGGING_LEVEL: INFO
+      NOS_DASHBOARD_ENABLED: 1
 
 models:
   custom/clip-model:
